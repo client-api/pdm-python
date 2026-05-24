@@ -1,0 +1,18 @@
+services:
+  pdm-test:
+    image: ghcr.io/client-api/proxmox-docker/pdm-test:latest
+    container_name: pdm-test
+    privileged: true
+    tmpfs:
+      - /tmp
+      - /run
+      - /run/lock
+    ports:
+      - "8443:8443"
+    healthcheck:
+      # /version requires auth on PBS — accept 200 or 401 as "API is up".
+      test: ["CMD-SHELL", "curl -sk -o /dev/null -w '%{http_code}' https://localhost:8443/api2/json/version | grep -qE '^(200|401)$'"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 10s
