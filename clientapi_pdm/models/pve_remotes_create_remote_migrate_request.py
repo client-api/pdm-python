@@ -49,7 +49,7 @@ class PveRemotesCreateRemoteMigrateRequest(BaseModel):
 
     target_vmid: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="A guest ID", alias="target-vmid")
 
-    timeout: Optional[StrictInt] = Field(default=None, description="Add a shutdown timeout for the restart-migration.")
+    timeout: Optional[int] = Field(default=None, description="Add a shutdown timeout for the restart-migration.")
 
     __properties: ClassVar[List[str]] = ["bwlimit", "delete", "node", "online", "restart", "target", "target-bridge", "target-endpoint", "target-storage", "target-vmid", "timeout"]
 

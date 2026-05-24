@@ -30,7 +30,7 @@ class NodesSdnGetIpVrfResponseData(BaseModel):
 
     ip: StrictStr = Field(description="The CIDR of the route table entry.")
 
-    metric: StrictInt = Field(description="This route's metric.")
+    metric: int = Field(description="This route's metric.")
 
     nexthops: List[StrictStr] = Field(description="A list of nexthops for the route table entry.")
 

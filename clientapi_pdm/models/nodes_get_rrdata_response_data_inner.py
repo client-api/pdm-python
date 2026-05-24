@@ -31,7 +31,7 @@ class NodesGetRrdataResponseDataInner(BaseModel):
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 
-    total_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total time in milliseconds needed for full metric collection run.", alias="total-time")
+    total_time: Optional[Union[float, int]] = Field(default=None, description="Total time in milliseconds needed for full metric collection run.", alias="total-time")
 
     __properties: ClassVar[List[str]] = ["time", "total-time"]
 

@@ -35,11 +35,11 @@ class PveRemotesGetLogResponseData(BaseModel):
 
     node: StrictStr = Field(description="The task's node.")
 
-    pid: StrictInt = Field(description="The task process id.")
+    pid: int = Field(description="The task process id.")
 
-    pstart: StrictInt = Field(description="The task's proc start time.")
+    pstart: int = Field(description="The task's proc start time.")
 
-    starttime: StrictInt = Field(description="The task's start time.")
+    starttime: int = Field(description="The task's start time.")
 
     status: PdmPbsRemotesStatusEnum = Field(description="A guest's run state.")
 

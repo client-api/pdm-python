@@ -30,7 +30,7 @@ class RemotesMetricCollectionGetStatusResponseDataInner(BaseModel):
 
     error: Optional[StrictStr] = Field(default=None, description="Any error that occured during the last collection attempt.")
 
-    last_collection: Optional[StrictInt] = Field(default=None, description="Timestamp of last successful collection.", alias="last-collection")
+    last_collection: Optional[int] = Field(default=None, description="Timestamp of last successful collection.", alias="last-collection")
 
     remote: StrictStr = Field(description="The remote's name.")
 

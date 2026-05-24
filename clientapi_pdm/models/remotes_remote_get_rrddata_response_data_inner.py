@@ -29,7 +29,7 @@ class RemotesRemoteGetRrddataResponseDataInner(BaseModel):
     RemotesRemoteGetRrddataResponseDataInner
     """ # noqa: E501
 
-    metric_collection_response_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="API response time in milliseconds when requesting the metrics from the remote.", alias="metric-collection-response-time")
+    metric_collection_response_time: Optional[Union[float, int]] = Field(default=None, description="API response time in milliseconds when requesting the metrics from the remote.", alias="metric-collection-response-time")
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 

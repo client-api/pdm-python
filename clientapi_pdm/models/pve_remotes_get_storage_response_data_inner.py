@@ -32,7 +32,7 @@ class PveRemotesGetStorageResponseDataInner(BaseModel):
 
     active: Optional[StrictBool] = Field(default=False, description="Set when storage is accessible.")
 
-    avail: Optional[StrictInt] = Field(default=None, description="Available storage space in bytes.")
+    avail: Optional[int] = Field(default=None, description="Available storage space in bytes.")
 
     content: PdmContentField = Field(description="Allowed storage content types.")
 
@@ -46,13 +46,13 @@ class PveRemotesGetStorageResponseDataInner(BaseModel):
 
     storage: StrictStr = Field(description="The storage identifier.")
 
-    total: Optional[StrictInt] = Field(default=None, description="Total storage space in bytes.")
+    total: Optional[int] = Field(default=None, description="Total storage space in bytes.")
 
     type: StrictStr = Field(description="Storage type.")
 
-    used: Optional[StrictInt] = Field(default=None, description="Used storage space in bytes.")
+    used: Optional[int] = Field(default=None, description="Used storage space in bytes.")
 
-    used_fraction: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Used fraction (used/total).")
+    used_fraction: Optional[Union[float, int]] = Field(default=None, description="Used fraction (used/total).")
 
     __properties: ClassVar[List[str]] = ["active", "avail", "content", "enabled", "formats", "select_existing", "shared", "storage", "total", "type", "used", "used_fraction"]
 

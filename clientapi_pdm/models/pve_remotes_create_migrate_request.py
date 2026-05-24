@@ -41,7 +41,7 @@ class PveRemotesCreateMigrateRequest(BaseModel):
 
     target_storage: Optional[List[StrictStr]] = Field(default=None, description="List of storage mappings", alias="target-storage")
 
-    timeout: Optional[StrictInt] = Field(default=None, description="Shutdown timeout for restart-migrations.")
+    timeout: Optional[int] = Field(default=None, description="Shutdown timeout for restart-migrations.")
 
     __properties: ClassVar[List[str]] = ["bwlimit", "node", "online", "restart", "target", "target-storage", "timeout"]
 

@@ -29,15 +29,15 @@ class PbsRemotesGetRrddataResponseDataInner(BaseModel):
     PbsRemotesGetRrddataResponseDataInner
     """ # noqa: E501
 
-    disk_available: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Available disk space", alias="disk-available")
+    disk_available: Optional[Union[float, int]] = Field(default=None, description="Available disk space", alias="disk-available")
 
-    disk_read: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk read rate", alias="disk-read")
+    disk_read: Optional[Union[float, int]] = Field(default=None, description="Disk read rate", alias="disk-read")
 
-    disk_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total disk size", alias="disk-total")
+    disk_total: Optional[Union[float, int]] = Field(default=None, description="Total disk size", alias="disk-total")
 
-    disk_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
+    disk_used: Optional[Union[float, int]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
 
-    disk_write: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk write rate", alias="disk-write")
+    disk_write: Optional[Union[float, int]] = Field(default=None, description="Disk write rate", alias="disk-write")
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 

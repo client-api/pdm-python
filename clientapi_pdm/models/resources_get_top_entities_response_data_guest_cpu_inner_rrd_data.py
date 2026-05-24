@@ -29,7 +29,7 @@ class ResourcesGetTopEntitiesResponseDataGuestCpuInnerRrdData(BaseModel):
     An RRD data series.
     """ # noqa: E501
 
-    data: List[Union[StrictFloat, StrictInt]] = Field(description="The data points.")
+    data: List[Union[float, int]] = Field(description="The data points.")
 
     resolution: Annotated[int, Field(strict=True, ge=0)] = Field(description="The resolution of the data points.")
 

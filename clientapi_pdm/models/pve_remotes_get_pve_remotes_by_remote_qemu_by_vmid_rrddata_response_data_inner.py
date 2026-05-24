@@ -29,27 +29,27 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidRrddataResponseDataInner(BaseMode
     PveRemotesGetPveRemotesByRemoteQemuByVmidRrddataResponseDataInner
     """ # noqa: E501
 
-    cpu_current: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Current CPU utilization", alias="cpu-current")
+    cpu_current: Optional[Union[float, int]] = Field(default=None, description="Current CPU utilization", alias="cpu-current")
 
-    cpu_max: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Max CPU utiliziation (Number of cores)", alias="cpu-max")
+    cpu_max: Optional[Union[float, int]] = Field(default=None, description="Max CPU utiliziation (Number of cores)", alias="cpu-max")
 
-    disk_read: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk read rate", alias="disk-read")
+    disk_read: Optional[Union[float, int]] = Field(default=None, description="Disk read rate", alias="disk-read")
 
-    disk_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total disk size", alias="disk-total")
+    disk_total: Optional[Union[float, int]] = Field(default=None, description="Total disk size", alias="disk-total")
 
-    disk_write: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk write rate", alias="disk-write")
+    disk_write: Optional[Union[float, int]] = Field(default=None, description="Disk write rate", alias="disk-write")
 
-    mem_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total memory size", alias="mem-total")
+    mem_total: Optional[Union[float, int]] = Field(default=None, description="Total memory size", alias="mem-total")
 
-    mem_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Currently used memory", alias="mem-used")
+    mem_used: Optional[Union[float, int]] = Field(default=None, description="Currently used memory", alias="mem-used")
 
-    net_in: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Inbound network data rate", alias="net-in")
+    net_in: Optional[Union[float, int]] = Field(default=None, description="Inbound network data rate", alias="net-in")
 
-    net_out: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Outboud network data rate", alias="net-out")
+    net_out: Optional[Union[float, int]] = Field(default=None, description="Outboud network data rate", alias="net-out")
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 
-    uptime: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Guest uptime")
+    uptime: Optional[Union[float, int]] = Field(default=None, description="Guest uptime")
 
     __properties: ClassVar[List[str]] = ["cpu-current", "cpu-max", "disk-read", "disk-total", "disk-write", "mem-total", "mem-used", "net-in", "net-out", "time", "uptime"]
 

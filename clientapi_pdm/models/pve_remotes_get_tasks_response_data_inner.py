@@ -28,17 +28,17 @@ class PveRemotesGetTasksResponseDataInner(BaseModel):
     PveRemotesGetTasksResponseDataInner
     """ # noqa: E501
 
-    endtime: Optional[StrictInt] = Field(default=None, description="The task's end time.")
+    endtime: Optional[int] = Field(default=None, description="The task's end time.")
 
     id: StrictStr = Field(description="The task id.")
 
     node: StrictStr = Field(description="The task's node.")
 
-    pid: StrictInt = Field(description="The task process id.")
+    pid: int = Field(description="The task process id.")
 
-    pstart: StrictInt = Field(description="The task's proc start time.")
+    pstart: int = Field(description="The task's proc start time.")
 
-    starttime: StrictInt = Field(description="The task's start time.")
+    starttime: int = Field(description="The task's start time.")
 
     status: Optional[StrictStr] = Field(default=None, description="The task's status.")
 

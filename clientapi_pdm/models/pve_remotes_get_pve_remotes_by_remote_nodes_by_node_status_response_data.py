@@ -35,7 +35,7 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeStatusResponseData(BaseModel):
 
     boot_info: PveRemotesGetPveRemotesByRemoteNodesByNodeStatusResponseDataBootInfo = Field(alias="boot-info")
 
-    cpu: Union[StrictFloat, StrictInt] = Field(description="The current cpu usage.")
+    cpu: Union[float, int] = Field(description="The current cpu usage.")
 
     cpuinfo: PveRemotesGetPveRemotesByRemoteNodesByNodeStatusResponseDataCpuinfo
 

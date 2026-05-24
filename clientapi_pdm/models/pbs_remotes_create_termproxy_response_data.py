@@ -28,7 +28,7 @@ class PbsRemotesCreateTermproxyResponseData(BaseModel):
     PbsRemotesCreateTermproxyResponseData
     """ # noqa: E501
 
-    port: StrictInt = Field(description="Always '0'.")
+    port: int = Field(description="Always '0'.")
 
     ticket: StrictStr = Field(description="VNC ticket used to authenticate websocket upgrade.")
 

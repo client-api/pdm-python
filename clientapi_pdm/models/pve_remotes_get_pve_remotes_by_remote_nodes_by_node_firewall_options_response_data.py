@@ -59,9 +59,9 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeFirewallOptionsResponseData(Base
 
     protection_synflood: Optional[StrictBool] = Field(default=False, description="Enable synflood protection")
 
-    protection_synflood_burst: Optional[StrictInt] = Field(default=1000, description="Synflood protection rate burst by ip src.")
+    protection_synflood_burst: Optional[int] = Field(default=1000, description="Synflood protection rate burst by ip src.")
 
-    protection_synflood_rate: Optional[StrictInt] = Field(default=200, description="Synflood protection rate syn/sec by ip src.")
+    protection_synflood_rate: Optional[int] = Field(default=200, description="Synflood protection rate syn/sec by ip src.")
 
     smurf_log_level: Optional[PdmLogLevelInEnum] = Field(default=None, description="Firewall log levels.")
 

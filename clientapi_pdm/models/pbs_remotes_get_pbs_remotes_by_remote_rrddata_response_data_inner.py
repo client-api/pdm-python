@@ -29,37 +29,37 @@ class PbsRemotesGetPbsRemotesByRemoteRrddataResponseDataInner(BaseModel):
     PbsRemotesGetPbsRemotesByRemoteRrddataResponseDataInner
     """ # noqa: E501
 
-    cpu_avg1: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CPU utilization, averaged over the last minute", alias="cpu-avg1")
+    cpu_avg1: Optional[Union[float, int]] = Field(default=None, description="CPU utilization, averaged over the last minute", alias="cpu-avg1")
 
-    cpu_avg15: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CPU utilization, averaged over the last fifteen minutes", alias="cpu-avg15")
+    cpu_avg15: Optional[Union[float, int]] = Field(default=None, description="CPU utilization, averaged over the last fifteen minutes", alias="cpu-avg15")
 
-    cpu_avg5: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CPU utilization, averaged over the last five minutes", alias="cpu-avg5")
+    cpu_avg5: Optional[Union[float, int]] = Field(default=None, description="CPU utilization, averaged over the last five minutes", alias="cpu-avg5")
 
-    cpu_current: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Current CPU utilization", alias="cpu-current")
+    cpu_current: Optional[Union[float, int]] = Field(default=None, description="Current CPU utilization", alias="cpu-current")
 
-    cpu_iowait: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Current IO wait", alias="cpu-iowait")
+    cpu_iowait: Optional[Union[float, int]] = Field(default=None, description="Current IO wait", alias="cpu-iowait")
 
-    disk_available: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Available disk space", alias="disk-available")
+    disk_available: Optional[Union[float, int]] = Field(default=None, description="Available disk space", alias="disk-available")
 
-    disk_read: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk read rate", alias="disk-read")
+    disk_read: Optional[Union[float, int]] = Field(default=None, description="Disk read rate", alias="disk-read")
 
-    disk_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total disk size", alias="disk-total")
+    disk_total: Optional[Union[float, int]] = Field(default=None, description="Total disk size", alias="disk-total")
 
-    disk_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
+    disk_used: Optional[Union[float, int]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
 
-    disk_write: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk write rate", alias="disk-write")
+    disk_write: Optional[Union[float, int]] = Field(default=None, description="Disk write rate", alias="disk-write")
 
-    mem_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total memory size", alias="mem-total")
+    mem_total: Optional[Union[float, int]] = Field(default=None, description="Total memory size", alias="mem-total")
 
-    mem_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Currently used memory", alias="mem-used")
+    mem_used: Optional[Union[float, int]] = Field(default=None, description="Currently used memory", alias="mem-used")
 
-    net_in: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Inbound network data rate", alias="net-in")
+    net_in: Optional[Union[float, int]] = Field(default=None, description="Inbound network data rate", alias="net-in")
 
-    net_out: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Outboud network data rate", alias="net-out")
+    net_out: Optional[Union[float, int]] = Field(default=None, description="Outboud network data rate", alias="net-out")
 
-    swap_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total swap size", alias="swap-total")
+    swap_total: Optional[Union[float, int]] = Field(default=None, description="Total swap size", alias="swap-total")
 
-    swap_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Currently used swap", alias="swap-used")
+    swap_used: Optional[Union[float, int]] = Field(default=None, description="Currently used swap", alias="swap-used")
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 

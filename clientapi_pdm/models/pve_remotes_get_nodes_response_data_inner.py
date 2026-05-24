@@ -29,15 +29,15 @@ class PveRemotesGetNodesResponseDataInner(BaseModel):
     PveRemotesGetNodesResponseDataInner
     """ # noqa: E501
 
-    cpu: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="CPU utilization.")
+    cpu: Optional[Union[float, int]] = Field(default=None, description="CPU utilization.")
 
     level: Optional[StrictStr] = Field(default=None, description="Support level.")
 
-    maxcpu: Optional[StrictInt] = Field(default=None, description="Number of available CPUs.")
+    maxcpu: Optional[int] = Field(default=None, description="Number of available CPUs.")
 
-    maxmem: Optional[StrictInt] = Field(default=None, description="Number of available memory in bytes.")
+    maxmem: Optional[int] = Field(default=None, description="Number of available memory in bytes.")
 
-    mem: Optional[StrictInt] = Field(default=None, description="Used memory in bytes.")
+    mem: Optional[int] = Field(default=None, description="Used memory in bytes.")
 
     node: StrictStr = Field(description="The cluster node name.")
 
@@ -45,7 +45,7 @@ class PveRemotesGetNodesResponseDataInner(BaseModel):
 
     status: PdmPveRemotesStatusEnum = Field(description="Node status.")
 
-    uptime: Optional[StrictInt] = Field(default=None, description="Node uptime in seconds.")
+    uptime: Optional[int] = Field(default=None, description="Node uptime in seconds.")
 
     __properties: ClassVar[List[str]] = ["cpu", "level", "maxcpu", "maxmem", "mem", "node", "ssl_fingerprint", "status", "uptime"]
 

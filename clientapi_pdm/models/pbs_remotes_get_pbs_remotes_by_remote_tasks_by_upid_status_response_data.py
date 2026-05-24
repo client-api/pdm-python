@@ -35,11 +35,11 @@ class PbsRemotesGetPbsRemotesByRemoteTasksByUpidStatusResponseData(BaseModel):
 
     node: StrictStr = Field(description="Node the task is running on.")
 
-    pid: StrictInt = Field(description="The Unix PID")
+    pid: int = Field(description="The Unix PID")
 
-    pstart: StrictInt = Field(description="The task start time (Epoch)")
+    pstart: int = Field(description="The task start time (Epoch)")
 
-    starttime: StrictInt = Field(description="The task's start time.")
+    starttime: int = Field(description="The task's start time.")
 
     status: PdmPbsRemotesStatusEnum = Field(description="Whether a task is still running.")
 

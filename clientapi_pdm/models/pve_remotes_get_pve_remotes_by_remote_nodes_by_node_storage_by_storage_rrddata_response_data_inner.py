@@ -29,9 +29,9 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeStorageByStorageRrddataResponseD
     PveRemotesGetPveRemotesByRemoteNodesByNodeStorageByStorageRrddataResponseDataInner
     """ # noqa: E501
 
-    disk_total: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Total disk size", alias="disk-total")
+    disk_total: Optional[Union[float, int]] = Field(default=None, description="Total disk size", alias="disk-total")
 
-    disk_used: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
+    disk_used: Optional[Union[float, int]] = Field(default=None, description="Disk utiliziation", alias="disk-used")
 
     time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Timestamp (UNIX epoch)")
 
