@@ -45,9 +45,9 @@ class PveRemotesUpdatePveRemotesByRemoteLxcByVmidFirewallOptionsRequest(BaseMode
 
     log_level_out: Optional[PdmLogLevelInEnum] = Field(default=None, description="Firewall log levels.")
 
-    macfilter: Optional[StrictBool] = Field(default=False, description="Enable/disable MAC address filter.")
+    macfilter: Optional[StrictBool] = Field(default=True, description="Enable/disable MAC address filter.")
 
-    ndp: Optional[StrictBool] = Field(default=False, description="Enable NDP (Neighbor Discovery Protocol).")
+    ndp: Optional[StrictBool] = Field(default=True, description="Enable NDP (Neighbor Discovery Protocol).")
 
     node: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="Node name (or 'localhost')")
 
@@ -145,8 +145,8 @@ class PveRemotesUpdatePveRemotesByRemoteLxcByVmidFirewallOptionsRequest(BaseMode
             "ipfilter": obj.get("ipfilter") if obj.get("ipfilter") is not None else False,
             "log_level_in": obj.get("log_level_in"),
             "log_level_out": obj.get("log_level_out"),
-            "macfilter": obj.get("macfilter") if obj.get("macfilter") is not None else False,
-            "ndp": obj.get("ndp") if obj.get("ndp") is not None else False,
+            "macfilter": obj.get("macfilter") if obj.get("macfilter") is not None else True,
+            "ndp": obj.get("ndp") if obj.get("ndp") is not None else True,
             "node": obj.get("node"),
             "policy_in": obj.get("policy_in"),
             "policy_out": obj.get("policy_out"),

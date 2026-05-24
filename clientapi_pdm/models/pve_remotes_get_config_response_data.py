@@ -43,7 +43,7 @@ class PveRemotesGetConfigResponseData(BaseModel):
 
     cmode: Optional[PdmPveRemotesCmodeEnum] = Field(default=None, description="Console mode. By default, the console command tries to open a connection to one of the available tty devices. By setting cmode to 'console' it tries to attach to /dev/console instead. If you set cmode to 'shell', it simply invokes a shell inside the container (no login).")
 
-    console: Optional[StrictBool] = Field(default=False, description="Attach a console device (/dev/console) to the container.")
+    console: Optional[StrictBool] = Field(default=True, description="Attach a console device (/dev/console) to the container.")
 
     cores: Optional[Annotated[int, Field(le=8192, strict=True, ge=1)]] = Field(default=None, description="The number of cores assigned to the container. A container can use all available cores by default.")
 
@@ -5005,7 +5005,7 @@ class PveRemotesGetConfigResponseData(BaseModel):
         _obj = cls.model_validate({
             "arch": obj.get("arch"),
             "cmode": obj.get("cmode"),
-            "console": obj.get("console") if obj.get("console") is not None else False,
+            "console": obj.get("console") if obj.get("console") is not None else True,
             "cores": obj.get("cores"),
             "cpulimit": obj.get("cpulimit") if obj.get("cpulimit") is not None else 0,
             "cpuunits": obj.get("cpuunits") if obj.get("cpuunits") is not None else 1024,

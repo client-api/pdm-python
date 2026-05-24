@@ -36,7 +36,7 @@ class PveRemotesUpdateOptionsRequest(BaseModel):
 
     digest: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="Prevent changes if current configuration file has a different digest. This can be used to prevent concurrent modifications.")
 
-    ebtables: Optional[StrictBool] = Field(default=False, description="Enable ebtables rules cluster wide.")
+    ebtables: Optional[StrictBool] = Field(default=True, description="Enable ebtables rules cluster wide.")
 
     enable: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=0, description="Enable or disable the firewall cluster wide.")
 
@@ -116,7 +116,7 @@ class PveRemotesUpdateOptionsRequest(BaseModel):
         _obj = cls.model_validate({
             "delete": obj.get("delete"),
             "digest": obj.get("digest"),
-            "ebtables": obj.get("ebtables") if obj.get("ebtables") is not None else False,
+            "ebtables": obj.get("ebtables") if obj.get("ebtables") is not None else True,
             "enable": obj.get("enable") if obj.get("enable") is not None else 0,
             "log_ratelimit": PdmLogRatelimitField.from_dict(obj["log_ratelimit"]) if obj.get("log_ratelimit") is not None else None,
             "policy_forward": obj.get("policy_forward"),

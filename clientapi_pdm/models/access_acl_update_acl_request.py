@@ -39,7 +39,7 @@ class AccessAclUpdateAclRequest(BaseModel):
 
     path: Annotated[str, Field(min_length=1, strict=True, max_length=128)] = Field(description="Access control path.")
 
-    propagate: Optional[StrictBool] = Field(default=False, description="Allow to propagate (inherit) permissions.")
+    propagate: Optional[StrictBool] = Field(default=True, description="Allow to propagate (inherit) permissions.")
 
     role: StrictStr = Field(description="Name of a role that the auth id will be granted.")
 
@@ -159,7 +159,7 @@ class AccessAclUpdateAclRequest(BaseModel):
             "digest": obj.get("digest"),
             "group": obj.get("group"),
             "path": obj.get("path"),
-            "propagate": obj.get("propagate") if obj.get("propagate") is not None else False,
+            "propagate": obj.get("propagate") if obj.get("propagate") is not None else True,
             "role": obj.get("role")
         })
         return _obj

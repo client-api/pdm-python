@@ -66,13 +66,13 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
     PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData
     """ # noqa: E501
 
-    acpi: Optional[StrictBool] = Field(default=False, description="Enable/disable ACPI.")
+    acpi: Optional[StrictBool] = Field(default=True, description="Enable/disable ACPI.")
 
     affinity: Optional[Annotated[str, Field(strict=True)]] = Field(default=None, description="List of host cores used to execute guest processes, for example: 0,5,8-11")
 
     agent: Optional[PdmAgentField] = Field(default=None, description="Enable/disable communication with the QEMU Guest Agent and its properties.")
 
-    allow_ksm: Optional[StrictBool] = Field(default=False, description="Allow memory pages of this guest to be merged via KSM (Kernel Samepage Merging).", alias="allow-ksm")
+    allow_ksm: Optional[StrictBool] = Field(default=True, description="Allow memory pages of this guest to be merged via KSM (Kernel Samepage Merging).", alias="allow-ksm")
 
     amd_sev: Optional[PdmAmdSevField] = Field(default=None, description="Secure Encrypted Virtualization (SEV) features by AMD CPUs", alias="amd-sev")
 
@@ -100,7 +100,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
 
     citype: Optional[PdmPveRemotesCitypeEnum] = Field(default=None, description="Specifies the cloud-init configuration format. The default depends on the configured operating system type (`ostype`. We use the `nocloud` format for Linux, and `configdrive2` for windows.")
 
-    ciupgrade: Optional[StrictBool] = Field(default=False, description="cloud-init: do an automatic package upgrade after the first boot.")
+    ciupgrade: Optional[StrictBool] = Field(default=True, description="cloud-init: do an automatic package upgrade after the first boot.")
 
     ciuser: Optional[StrictStr] = Field(default=None, description="cloud-init: User name to change ssh keys and password for instead of the image's configured default user.")
 
@@ -238,7 +238,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
 
     keyboard: Optional[PdmPveRemotesKeyboardEnum] = Field(default=None, description="Keyboard layout for VNC server. This option is generally not required and is often better handled from within the guest OS.")
 
-    kvm: Optional[StrictBool] = Field(default=False, description="Enable/disable KVM hardware virtualization.")
+    kvm: Optional[StrictBool] = Field(default=True, description="Enable/disable KVM hardware virtualization.")
 
     localtime: Optional[StrictBool] = Field(default=False, description="Set the real time clock (RTC) to local time. This is enabled by default if the `ostype` indicates a Microsoft Windows OS.")
 
@@ -354,7 +354,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
 
     protection: Optional[StrictBool] = Field(default=False, description="Sets the protection flag of the VM. This will disable the remove VM and remove disk operations.")
 
-    reboot: Optional[StrictBool] = Field(default=False, description="Allow reboot. If set to '0' the VM exit on reboot.")
+    reboot: Optional[StrictBool] = Field(default=True, description="Allow reboot. If set to '0' the VM exit on reboot.")
 
     rng0: Optional[PdmRngField] = Field(default=None, description="Configure a VirtIO-based Random Number Generator.")
 
@@ -468,7 +468,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
 
     startup: Optional[StrictStr] = Field(default=None, description="Startup and shutdown behavior. Order is a non-negative number defining the general startup order. Shutdown in done with reverse ordering. Additionally you can set the 'up' or 'down' delay in seconds, which specifies a delay to wait before the next VM is started or stopped.")
 
-    tablet: Optional[StrictBool] = Field(default=False, description="Enable/disable the USB tablet device.")
+    tablet: Optional[StrictBool] = Field(default=True, description="Enable/disable the USB tablet device.")
 
     tags: Optional[StrictStr] = Field(default=None, description="Tags of the VM. This is only meta information.")
 
@@ -3019,10 +3019,10 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "acpi": obj.get("acpi") if obj.get("acpi") is not None else False,
+            "acpi": obj.get("acpi") if obj.get("acpi") is not None else True,
             "affinity": obj.get("affinity"),
             "agent": PdmAgentField.from_dict(obj["agent"]) if obj.get("agent") is not None else None,
-            "allow-ksm": obj.get("allow-ksm") if obj.get("allow-ksm") is not None else False,
+            "allow-ksm": obj.get("allow-ksm") if obj.get("allow-ksm") is not None else True,
             "amd-sev": PdmAmdSevField.from_dict(obj["amd-sev"]) if obj.get("amd-sev") is not None else None,
             "arch": obj.get("arch"),
             "args": obj.get("args"),
@@ -3036,7 +3036,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
             "cicustom": PdmCicustomField.from_dict(obj["cicustom"]) if obj.get("cicustom") is not None else None,
             "cipassword": obj.get("cipassword"),
             "citype": obj.get("citype"),
-            "ciupgrade": obj.get("ciupgrade") if obj.get("ciupgrade") is not None else False,
+            "ciupgrade": obj.get("ciupgrade") if obj.get("ciupgrade") is not None else True,
             "ciuser": obj.get("ciuser"),
             "cores": obj.get("cores") if obj.get("cores") is not None else 1,
             "cpu": PdmCpuField.from_dict(obj["cpu"]) if obj.get("cpu") is not None else None,
@@ -3105,7 +3105,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
             "ivshmem": PdmIvshmemField.from_dict(obj["ivshmem"]) if obj.get("ivshmem") is not None else None,
             "keephugepages": obj.get("keephugepages") if obj.get("keephugepages") is not None else False,
             "keyboard": obj.get("keyboard"),
-            "kvm": obj.get("kvm") if obj.get("kvm") is not None else False,
+            "kvm": obj.get("kvm") if obj.get("kvm") is not None else True,
             "localtime": obj.get("localtime") if obj.get("localtime") is not None else False,
             "lock": obj.get("lock"),
             "machine": PdmMachineField.from_dict(obj["machine"]) if obj.get("machine") is not None else None,
@@ -3163,7 +3163,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
             "parallel2": obj.get("parallel2"),
             "parent": obj.get("parent"),
             "protection": obj.get("protection") if obj.get("protection") is not None else False,
-            "reboot": obj.get("reboot") if obj.get("reboot") is not None else False,
+            "reboot": obj.get("reboot") if obj.get("reboot") is not None else True,
             "rng0": PdmRngField.from_dict(obj["rng0"]) if obj.get("rng0") is not None else None,
             "running-nets-host-mtu": obj.get("running-nets-host-mtu"),
             "runningcpu": obj.get("runningcpu"),
@@ -3220,7 +3220,7 @@ class PveRemotesGetPveRemotesByRemoteQemuByVmidConfigResponseData(BaseModel):
             "sshkeys": obj.get("sshkeys"),
             "startdate": obj.get("startdate") if obj.get("startdate") is not None else 'now',
             "startup": obj.get("startup"),
-            "tablet": obj.get("tablet") if obj.get("tablet") is not None else False,
+            "tablet": obj.get("tablet") if obj.get("tablet") is not None else True,
             "tags": obj.get("tags"),
             "tdf": obj.get("tdf") if obj.get("tdf") is not None else False,
             "template": obj.get("template") if obj.get("template") is not None else False,

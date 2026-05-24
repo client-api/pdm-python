@@ -29,7 +29,7 @@ from clientapi_pdm import Configuration, Pve
 
 cfg = Configuration(
     host='https://pdm1.example.com:8443/api2/json',
-    api_key={'Authorization': 'PDMAPIToken=user@realm!tokenid=uuid-secret'},
+    api_key={'Authorization': 'PDMAPIToken=user@realm!tokenid:uuid-secret'},
 )
 pdm = Pdm(configuration=cfg)
 

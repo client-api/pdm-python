@@ -31,7 +31,7 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeFirewallOptionsResponseData(Base
     PveRemotesGetPveRemotesByRemoteNodesByNodeFirewallOptionsResponseData
     """ # noqa: E501
 
-    enable: Optional[StrictBool] = Field(default=False, description="Enable host firewall rules.")
+    enable: Optional[StrictBool] = Field(default=True, description="Enable host firewall rules.")
 
     log_level_forward: Optional[PdmLogLevelInEnum] = Field(default=None, description="Firewall log levels.")
 
@@ -41,7 +41,7 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeFirewallOptionsResponseData(Base
 
     log_nf_conntrack: Optional[StrictBool] = Field(default=False, description="Enable logging of conntrack information.")
 
-    ndp: Optional[StrictBool] = Field(default=False, description="Enable NDP (Neighbor Discovery Protocol).")
+    ndp: Optional[StrictBool] = Field(default=True, description="Enable NDP (Neighbor Discovery Protocol).")
 
     nf_conntrack_allow_invalid: Optional[StrictBool] = Field(default=False, description="Allow invalid packets on connection tracking.")
 
@@ -146,12 +146,12 @@ class PveRemotesGetPveRemotesByRemoteNodesByNodeFirewallOptionsResponseData(Base
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "enable": obj.get("enable") if obj.get("enable") is not None else False,
+            "enable": obj.get("enable") if obj.get("enable") is not None else True,
             "log_level_forward": obj.get("log_level_forward"),
             "log_level_in": obj.get("log_level_in"),
             "log_level_out": obj.get("log_level_out"),
             "log_nf_conntrack": obj.get("log_nf_conntrack") if obj.get("log_nf_conntrack") is not None else False,
-            "ndp": obj.get("ndp") if obj.get("ndp") is not None else False,
+            "ndp": obj.get("ndp") if obj.get("ndp") is not None else True,
             "nf_conntrack_allow_invalid": obj.get("nf_conntrack_allow_invalid") if obj.get("nf_conntrack_allow_invalid") is not None else False,
             "nf_conntrack_helpers": PdmNfConntrackHelpersField.from_dict(obj["nf_conntrack_helpers"]) if obj.get("nf_conntrack_helpers") is not None else None,
             "nf_conntrack_max": obj.get("nf_conntrack_max") if obj.get("nf_conntrack_max") is not None else 262144,
